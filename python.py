@@ -1,5 +1,6 @@
 
 
+
 # Exploratory Data Analysis 
 
 #1 histogram 
@@ -26,8 +27,11 @@ plt.show()
 
 import numpy as np 
 
+
 x = np.sort('variable')
 y = np.arange(1, len(x)+1) / len(x)
+
+
 _ = plt.plot(x, y, marker = '.', linestyle = 'none')
 _ = plt.xlabel('')
 _ = plt.ylabel('')
@@ -41,6 +45,7 @@ def ecdf (data):
     x = np.sort(data)
     y = np.arange(1, n+1)/n
     return x, y
+
 
 #Summary Statistics 
     
@@ -80,6 +85,7 @@ _ = plt.margins(0.02)
 _ = plt.plot(ptiles_vers , percntiles , marker = 'D', color = 'red', linestyle = 'none')
 
 plt.show()
+
 
 
 
