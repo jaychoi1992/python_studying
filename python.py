@@ -82,12 +82,132 @@ _ = plt.xlabel('')
 _ = plt.ylabel('')
 _ = plt.margins(0.02)
 
-_ = plt.plot(ptiles_vers , percntiles , marker = 'D', color = 'red', linestyle = 'none')
+_ = plt.plot(ptiles_vers , percentiles , marker = 'D', color = 'red', linestyle = 'none')
 
 plt.show()
 
+# variance and Standard Deviantion 
 
+#variance 
 
+import numpy as np 
+
+np.var('variable')
+
+# Standard deviationo 
+import numpy as np 
+ 
+np.std('variable')
+ 
+ #generate scatter plot 
+ 
+import matplotlib.pyplot as plt 
+_ = plt.plot( '', '', marker = '.', linestyle = 'none')
+_ = plt.xlabel('')
+_ = plt.ylabel('')
+
+# covariance 
+
+import numpy as np 
+
+covariance_matrix = np.cov('variable','variable')
+
+#[0,0] stands for variance for x, [1,1] for variance of y and [0,1],[1,0] is covariance. 
+
+#Pearson correlation coefficient 
+
+def Pearson_r (x, y):
+   corr_mat =  np.corrcoef(x,y)
+    
+   return corr_mat[0,1]
+
+#[0,0] and [1,1] should be 1 and [0,1],[1,0] is correlation coefficient
+    
+#Probabilities logic and Statistical Inference 
+   
+# simulating with 4 coins with head up as true 
+   
+n_all_heads = 0
+
+for _ in range(1000):
+   heads =  np.random.random(size = 4) < 0.5
+   n_heads = np.sum(heads)
+   if n_heads == 4 :
+        n_all_heads += 1
+        
+n_all_heads / 1000
+
+#Try to understand the equality of random function 
+import numpy as np 
+import matplotlib.pyplot as plt
+np.random.seed(42)
+random = np.empty(100000)
+
+for i in range(100000):
+    random[i] = np.random.random()
+    
+plt.hist(random)
+
+plt.show()
+
+#Bernoulli Trial
+
+def perform_bernoulli_trials(n, p):
+    """Perform n Bernoulli trials with success probability p
+    and return number of successes."""
+    
+    n_success = 0
+    
+    for i in range(n):
+        random_number = np.random.random()
+        if random_number < p:
+            n_success += 1
+            
+#example : make loan with 0.05% default and do 1000 times simulation 
+            
+import numpy as np 
+import matplotlib.pyplot as plt
+np.random.seed(42)
+
+result = np.empty(1000)
+
+for i in range(1000):
+    result[i] = perform_bernoulli_trials(100,0.05)
+    
+_ = plt.hist(result, normed = True)
+# normed = True,so that the height of the bars of the histogram indicate the probability.
+
+_ = plt.xlabel('number of defaults out of 100 loans')
+_ = plt.ylabel('probability')
+
+# Show the plot
+plt.show()
+
+#Probability Mass Functions(PMF)
+
+# sampling from the binomial distribution 
+
+import numpy as np 
+
+np.random.binomial(n = 4, p = 0.4, size = 10)
+
+#to plot the PMF we change bins edge and will use histogram
+
+bins = np.arange(min('variable'), max('variable') + 1.5) - 0.5
+
+_ = plt.plot('variable' , normed = True, bins = bins)
+_ = plt.xlabel('')
+_ = plt.ylabel('')
+plt.show()
+#Poisson Process : 
+    #The timing of the next event is completely independent of wen the previous event happened.
+
+#Poisson distribution :
+    #The number r of arrivals oof a Poisson process in a given time interval with average rate of ramda arrivals
+    #per interval is Pissoon distributed
+
+# Limit of the Binomial distribution for low probability of success and large number of trials : rare event
+    r
 
 
 
