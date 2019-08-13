@@ -208,6 +208,26 @@ plt.show()
 
 # Limit of the Binomial distribution for low probability of success and large number of trials : rare event
     
+#compare the mean and probability between Poisson distribution and Binomial Distribution 
+import numpy as np
+sample_poisson = np.random.poisson(10, size = 10000)
+print('Poisson: ', np.mean(sample_poisson), np.std(sample_poisson))
+
+# make 3 pairs of n and p which makes 10
+
+n = [20,100,1000]
+p = [0.5,0.1,0.01]
+
+for i in range(3):
+    sample_binomial = np.random.binomial(n[i],p[i],size = 10000)
+    
+    print('binomial distribution with n= ',n[i], ' ',p[i],' ', np.mean(sample_binomial), np.std(sample_binomial))
+    
+
+# the mean and std getting closser to poisson dist as p getting smaller and n getting bigger
 
 
+#Probability Density Function
+    
+    
 
