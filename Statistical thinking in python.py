@@ -229,5 +229,72 @@ for i in range(3):
 
 #Probability Density Function
     
+# Normal distribution
     
+import numpy as np 
+mean = np.mean('data')
+std = np.std('data')
+
+samples = np.random.normal(mean, std, size = 10000)
+
+x, y = ecdf('data')
+
+x_theo, y_theo = ecdf(samples)
+
+import matplotlib.pyplot as plt 
+
+import seaborn as sns 
+
+sns.set()
+
+_ = plt.plot(x_theo, y_theo)
+_ = plt.plot(x, y, marker = '.', linestyle = 'none')
+_ = plt.xlabel('')
+_ = plt.ylabel('')
+
+plt.show()
+
+_ = plt.hist(samples, normed = True, histtype = 'step')
+
+#histtype = step helps histogram looks like the smoothed histogram line
+
+# comparing theoretical normal distribution and the distribution from the data 
+
+# compute mean and std of data 
+
+mu = np.mean('data')
+sigma = np.std('data')
+
+#form theoretical normal distribution with mu and sigma
+
+samples = np.random.normal(mu, sigma, size = 10000)
+
+x_theor, y_theor = ecdf(samples)
+y, y = ecdf('data')
+
+_ = plt.plot(x_theo, y_theo)
+_ = plt.plot(x, y, marker = '.', linestyle = 'none')
+_ = plt.xlabel('')
+_ = plt.ylabel('')
+
+plt.show()
+
+#Exponential Distribution 
+
+#compute the time for arrival of 2 successive Poisson process 
+
+def successive_poisson(tau1, tau2, size =1 ):
+    t1 = np.random.exponential(tau1, size = size)
+    t2 = np.random.exponential(tau2, size = size)
+    
+    return t1 + t2
+
+waiting_times = successive_poisson(764, 715, 100000)
+_ = plt.hist(waiting_times, bins = 100, nomed = True, histtype = 'step')
+_ = plt.xlabel('total waiting time (games)')
+_ = plt.ylabel('PDF')
+# Show the plot
+plt.show()
+
+
 
