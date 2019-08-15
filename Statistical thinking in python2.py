@@ -48,6 +48,54 @@ plt.show()
 
 #based on the graph, the tau is the optimal parameter which can best match to the data. 
 
+#linear regression by least square 
+
+slope , intercept = np.polyfit('x','y',1)# 3rd argument is the dimension of the polynomial
+
+#drawing regression line on the plot 
+
+_ = plt.plot('x', 'y' , marker = '.', linestype = 'none')
+# draw scatter plot
+_ = plt. margins(0.02)
+_ = plt.xlabel('')
+_ = plt.ylabel('')
+
+slope, intercept = np.polyfit('x' , 'y', 1)
+
+x = np.array([0,100])
+y = slope * x + intercept 
+
+_ = plt.plot(x,y)
+
+plt.show()
+
+#finding optimal slope for the data 
+
+a_vals = np.linspace(0,0.1,200)
+# return 200 numbers between 0 and 0.1
+
+rss = np.empty_like(a_vals)
+
+# return 200 array which have same datatype with a_vals
+
+#compute sum of squares 
+
+for i, a in enumerate(a_vals):
+    rss[i] = np.sum(('y_data' - 'slope'*'x_data' - 'intercept')**2)
+    
+plt.plot(a_vals, rss, '-')
+plt.xlabel('')
+plt.ylabel('')
+plt.show()
+
+#iterate through and find slope and intercept for 4 different dataset 
+
+anscombe_x = ['x1','x2','x3','x4']
+anscombe_y = ['y1','y2','y3','y4']
+
+for x, y in zip(anscombe_x, anscombe_y):
+    a, b = np.polyfit(x,y,1)
+    
 
 
 
